@@ -44,8 +44,7 @@ const btn_Next = document.querySelector('.control_next')
 const btn_Prev = document.querySelector('.control_prev')
 const btn_Random = document.querySelector('.control_random')
 
-const sw = [1, 0]
-let x = sw[0]
+let x = 1
 
 // hiển thị bài hát
 songs.map(song=> {
@@ -86,17 +85,19 @@ function resetBtnPlay() {
   Play.classList.remove('hidden')
   Pause.classList.add('hidden')
 }
-// resetRotate();
-// function resetRotate() {
-//   document.getElementsByClassName("img_center").style.transform = 'rotate(0deg)';
-// }
+function resetRotate() {
+  document.querySelector('.cd').classList.remove('rotate')
+  setTimeout(function() {
+    document.querySelector('.cd').classList.add('rotate')
+  }, 50)
+}
 
 function changeCD(song) {
-  // resetRotate();
   let url = song.querySelector('.song_avt').style.backgroundImage
   let name = song.querySelector('.song_name').innerHTML
   document.querySelector('.cd').style.backgroundImage = url
   document.querySelector('.name_dashboard').innerHTML = name
+  resetRotate()
   let mp3 = songs.find(function(song) {
     return song.songName == name
   })
@@ -119,6 +120,7 @@ function moveSong(index_Song) {
   audio = new Audio(songs[index_Song].song_mp3)
   audio.play()
   resetBtnPlay()
+  resetRotate()
 }
 
 let song_list = document.querySelectorAll('.song')
@@ -136,7 +138,7 @@ btn_Play.addEventListener('click', function() {
   else {
     audio.play()
   }
-  x = sw[x]
+  x = x == 1 ? 0 : 1
   Play.classList.toggle('hidden')
   Pause.classList.toggle('hidden')
 })
