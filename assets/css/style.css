@@ -1,0 +1,157 @@
+:root {
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+}
+
+.wrapper {
+  resize: both;
+  background: #F1F1F1;
+  margin: 0 auto;
+  width: 400px;
+  height: 100vh;
+  overflow: value;
+  position: relative;
+}
+
+.dashboard {
+  width: 400px;
+  height: 370px;
+  position: fixed;
+  background: #F1F1F1;
+}
+
+.playlist {
+  display: flex;
+  flex-direction: column;
+  padding-top: 370px;
+  outline: none;
+  background: #F1F1F1;
+}
+
+.name_dashboard {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.text_center {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.cd {
+  /* background: red; */
+  height: 12rem;
+  width: 12rem;
+
+  border-radius: 50%;
+  margin: 10px auto;
+
+}
+
+.control {
+  /* border: 1px solid black; */
+  width: 75%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto 0;
+}
+
+.control i {
+  /* font-size: 18px; */
+}
+
+.align {
+  margin: auto 0;
+}
+
+.song_time {
+  display: block;
+  outline: none;
+  /* border: 1px solid black; */
+  width: 60%;
+  margin: 25px auto;
+}
+
+#song_time {
+  width: 100%;
+}
+
+.img_center {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.song {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.song_inner {
+  display: flex;
+  border: 1px solid black;
+  width: 90%;
+  margin: 0 auto;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.song_avt {
+  height: 40px;
+  width: 40px;
+  margin: auto 10px;
+}
+
+.song_content {
+  margin: auto 0;
+}
+
+.song_name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.song_author {
+  font-size: 15px;
+}
+
+.btn:hover {
+  color: #5800FF;
+  cursor: pointer;
+}
+
+.rotate {
+  animation: rotation 20s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.song_inner:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+  
+}

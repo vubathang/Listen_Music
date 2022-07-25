@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listen Music</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="dashboard">
+      <div class="header">
+        <p class="text_center" style="color: green;">Now playing</p>
+        <div class="name_dashboard text_center"></div>
+      </div>
+      <div class="cd img_center rotate" style="background-image: url('');"></div>
+      <div class="control ">
+        <!-- repeat -->
+        <div class="control_repeat align btn">
+          <i class="fa-solid fa-arrow-rotate-right"></i>
+        </div>
+        <!-- prev -->
+        <div class="control_prev align btn">
+          <i class="fa-solid fa-backward-step"></i>
+        </div>
+        <!-- play -->
+        <div class="btn_play">
+
+          <div class="control_play align btn pause hidden">
+            <i class="fa-solid fa-circle-play" style="font-size: 30px;"></i>
+          </div>
+          <div class="control_play align btn play ">
+            <i class="fa-solid fa-circle-pause" style="font-size: 30px;"></i>
+          </div>
+        </div>
+        <!-- next -->
+        <div class="control_next align btn">
+          <i class="fa-solid fa-forward-step"></i>
+        </div>
+        <!-- random -->
+        <div class="control_random align btn">
+          <i class="fa-solid fa-shuffle"></i>
+        </div>
+      </div>
+      <div class="song_time">
+        <input type="range" name="song_time" id="song_time">
+      </div>
+    </div>
+    <div class="playlist">
+      <!-- <div class="song">
+        <div class="song_inner">
+          <div class="song_avt img_center" style="background-image: url('./assets/img/illbethere.jpg');"></div>
+          <div class="song_content">
+            <p class="song_name">I'll be there</p>
+            <p class="song_author">VBT</p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
