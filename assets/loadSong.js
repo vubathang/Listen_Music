@@ -1,10 +1,22 @@
 const songs = [
-  // {
-  //   name: "Clap",
-  //   img: 'https://i.ytimg.com/vi/d1JVYKP7S4A/maxresdefault.jpg',
-  //   single: 'Me',
-  //   path: 'https://cf-media.sndcdn.com/C85PcipWR2mI.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vQzg1UGNpcFdSMm1JLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU4ODAxNzkwfX19XX0_&Signature=OISMl2H0UKxxU-WK7fg-jjwYgTDdZfD3QELXQtCl35BzvdT8W9JTneZ-8G7NjedMW7O8fUac7iCj2j-q6sN31TvFJHkIKg2qGHZH3kmnvlUNB3EXp0VCEJvz~U~yOyeAjXzfIp2K7U1~D2IXTE~UQsigWyvaq1uDYcpLnTsUBp0fuw1oyu4cmzn3gLTyvOjiyKH1NcVOgQm3cHLdYl421rLelpN96-U3cN7QykgKm6jpInvnVDeqHcRoO~gjtOxqcqF8F5MpAB-TVXEXFaI4ie2b54fdu5n-aMtCzc-NXW84H3RzUTeTAGX3NTyDwvxoiWtx7qh-1gL04DXKzU5uJQ__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ'
-  // },
+  {
+    name: "Clap",
+    img: 'https://i.ytimg.com/vi/d1JVYKP7S4A/maxresdefault.jpg',
+    single: 'Me',
+    path: 'https://cf-media.sndcdn.com/C85PcipWR2mI.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vQzg1UGNpcFdSMm1JLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU4ODAxNzkwfX19XX0_&Signature=OISMl2H0UKxxU-WK7fg-jjwYgTDdZfD3QELXQtCl35BzvdT8W9JTneZ-8G7NjedMW7O8fUac7iCj2j-q6sN31TvFJHkIKg2qGHZH3kmnvlUNB3EXp0VCEJvz~U~yOyeAjXzfIp2K7U1~D2IXTE~UQsigWyvaq1uDYcpLnTsUBp0fuw1oyu4cmzn3gLTyvOjiyKH1NcVOgQm3cHLdYl421rLelpN96-U3cN7QykgKm6jpInvnVDeqHcRoO~gjtOxqcqF8F5MpAB-TVXEXFaI4ie2b54fdu5n-aMtCzc-NXW84H3RzUTeTAGX3NTyDwvxoiWtx7qh-1gL04DXKzU5uJQ__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ'
+  },
+  {
+    name: "Clap2",
+    img: 'https://i.ytimg.com/vi/d1JVYKP7S4A/maxresdefault.jpg',
+    single: 'Me',
+    path: 'https://cf-media.sndcdn.com/C85PcipWR2mI.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vQzg1UGNpcFdSMm1JLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU4ODAxNzkwfX19XX0_&Signature=OISMl2H0UKxxU-WK7fg-jjwYgTDdZfD3QELXQtCl35BzvdT8W9JTneZ-8G7NjedMW7O8fUac7iCj2j-q6sN31TvFJHkIKg2qGHZH3kmnvlUNB3EXp0VCEJvz~U~yOyeAjXzfIp2K7U1~D2IXTE~UQsigWyvaq1uDYcpLnTsUBp0fuw1oyu4cmzn3gLTyvOjiyKH1NcVOgQm3cHLdYl421rLelpN96-U3cN7QykgKm6jpInvnVDeqHcRoO~gjtOxqcqF8F5MpAB-TVXEXFaI4ie2b54fdu5n-aMtCzc-NXW84H3RzUTeTAGX3NTyDwvxoiWtx7qh-1gL04DXKzU5uJQ__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ'
+  },
+  {
+    name: "Clap3",
+    img: 'https://i.ytimg.com/vi/d1JVYKP7S4A/maxresdefault.jpg',
+    single: 'Me',
+    path: 'https://cf-media.sndcdn.com/C85PcipWR2mI.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vQzg1UGNpcFdSMm1JLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU4ODAxNzkwfX19XX0_&Signature=OISMl2H0UKxxU-WK7fg-jjwYgTDdZfD3QELXQtCl35BzvdT8W9JTneZ-8G7NjedMW7O8fUac7iCj2j-q6sN31TvFJHkIKg2qGHZH3kmnvlUNB3EXp0VCEJvz~U~yOyeAjXzfIp2K7U1~D2IXTE~UQsigWyvaq1uDYcpLnTsUBp0fuw1oyu4cmzn3gLTyvOjiyKH1NcVOgQm3cHLdYl421rLelpN96-U3cN7QykgKm6jpInvnVDeqHcRoO~gjtOxqcqF8F5MpAB-TVXEXFaI4ie2b54fdu5n-aMtCzc-NXW84H3RzUTeTAGX3NTyDwvxoiWtx7qh-1gL04DXKzU5uJQ__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ'
+  },
   {
     name: "I'l will be there",
     img: 'https://i.ytimg.com/vi/d1JVYKP7S4A/maxresdefault.jpg',

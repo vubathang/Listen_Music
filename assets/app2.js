@@ -3,8 +3,7 @@ import { songs } from "./loadSong.js"
 const playlist = document.querySelector('.playlist')
 const dashboard = document.querySelector('.dashboard')
 const cd = document.querySelector('.cd')
-
-let audio = null
+let i = null
 
 const btn_Play = document.querySelector('.btn_play')
 const Play = document.querySelector('.play')
@@ -14,19 +13,18 @@ const btn_Prev = document.querySelector('.control_prev')
 const btn_Random = document.querySelector('.control_random')
 const btn_Repeat = document.querySelector('.control_repeat')
 const timeLine = document.getElementById('song_time')
-timeLine.value = 0
+
 const lightDark = document.querySelector('.switch')
-
-
 let x = 1
 let random = false
 let repeat = false
+let audio = null
 
 // hiển thị bài hát
 songs.map(song=> {
   playlist.innerHTML += `
-    <div class="song">
-      <div class="song_inner">
+    <div class="song ">
+      <div class="song_inner stt${songs.indexOf(song)}">
         <div class="song_avt img_center" style="background-image: url(${song.img});"></div>
         <div class="song_content">
           <p class="song_name">${song.name}</p>
@@ -37,142 +35,99 @@ songs.map(song=> {
   `
 })
 
-function getIndexSong(str) {
+function getIndexCurrent() {
   let name = document.querySelector('.name_dashboard').innerHTML
-  let mp3 = songs.find(function(x) {
+  let songCurrent = songs.find(function(x) {
     return x.name == name
   })
-  let indexSong = songs.indexOf(mp3)
-
-  if (str == '+') {
-    if (indexSong == songs.length - 1) indexSong = 0
-    else indexSong += 1
-  }
-  else if (str == '-') {
-    if (indexSong == 0) indexSong = songs.length - 1
-    else indexSong -= 1
-  }
-  return indexSong;
+  let indexCurrent = songs.indexOf(songCurrent)
+  return indexCurrent
 }
 
-function resetBtnPlay() {
+function getIndexNextSong(str) {
+  const lastIndex = songs.length - 1
+  let i = getIndexCurrent()
+  if (str === 'next') {
+    if (i == lastIndex) {
+      i = 0
+    }
+    else {
+
+      i = i + 1
+    }
+  }
+  else if (str === 'prev') {
+    if (i === 0) {
+      i = lastIndex
+    }
+    else {
+      i = i - 1
+    }
+  }
+  return i
+}
+
+function reset(song) {
+  document.querySelector('#song_time').value = 0
   x = 1
+  let url = `url('${song.img}')`
+  let name = song.name
+  // addHold()
   Play.classList.remove('hidden')
   Pause.classList.add('hidden')
-}
-
-function resetRotate() {
   document.querySelector('.cd').classList.remove('rotate')
   setTimeout(function() {
     document.querySelector('.cd').classList.add('rotate')
+    document.querySelector(`.stt${getIndexCurrent()}`).classList.add('Hold')
   }, 50)
-}
 
-function changeCD(song) {
-  let url = song.querySelector('.song_avt').style.backgroundImage
-  let name = song.querySelector('.song_name').innerHTML
   document.querySelector('.cd').style.backgroundImage = url
   document.querySelector('.name_dashboard').innerHTML = name
-  resetRotate()
-  let mp3 = songs.find(function(song) {
-    return song.name == name
-  })
   if (audio === null) {
-    audio = new Audio(mp3.path)
+    audio = new Audio(song.path)
     audio.play()
   }
   else {
     audio.pause()
-    audio = new Audio(mp3.path)
+    audio = new Audio(song.path)
     audio.play()
   }
-  next()
+
+  i = checkStatus(i, 'next')
+  
+  audio.ontimeupdate = function () {
+    timeLine.value = 0
+    let per = audio.currentTime / audio.duration
+    timeLine.value = per*100
+    if(per == 1) {
+      document.querySelector(`.stt${getIndexCurrent()}`).classList.remove('Hold')
+      reset(songs[i])
+    }
+  }
 }
 
 let song_list = document.querySelectorAll('.song')
 song_list.forEach(song => {
   song.addEventListener('click', function() {
-    changeCD(song)
-    resetBtnPlay()
+    let mp3 = song.querySelector('.song_name').innerHTML
+    let songCurrent = songs.find(function(x) {
+      return x.name == mp3
+    })
+    try{
+      document.querySelector(`.Hold`).classList.remove('Hold')
+      reset(songCurrent)
+    }
+    catch {
+      reset(songCurrent)
+    }
   })
-})
-
-function autoNextSong(audio, indexSong) {
-  if(audio.ended) {
-    moveSong(indexSong)
-  }
-  tl()
-}
-
-function next() {
-  let y = getIndexSong('+')
-  if (random === true) {
-    y = Math.trunc(Math.random()*songs.length)
-  }
-  else if (repeat === true) {
-    y = getIndexSong()
-  }
-  audio.ontimeupdate = function() {autoNextSong(audio, y)};
-}
-
-function tl() {
-  timeLine.value = audio.currentTime
-  let per = audio.currentTime / audio.duration * 100
-  timeLine.value = per
-}
-
-function moveSong(index_Song) {
-  let urlImage = `url(${songs[index_Song].img})`
-  document.querySelector('.cd').style.backgroundImage = urlImage
-  document.querySelector('.name_dashboard').innerHTML = songs[index_Song].name
-  audio.pause()
-  audio = new Audio(songs[index_Song].path)
-  resetBtnPlay()
-  resetRotate()
-  audio.play()
-  audio.ontimeupdate = function () {
-    timeLine.value = audio.currentTime
-    let per = audio.currentTime / audio.duration * 100
-    timeLine.value = per
-  }
-}
-
-btn_Play.addEventListener('click', function() {
-  if (x == 1) {
-    audio.pause()
-  }
-  else {
-    audio.play()
-  }
-  x = x == 1 ? 0 : 1
-  Play.classList.toggle('hidden')
-  Pause.classList.toggle('hidden')
 })
 
 timeLine.onchange = function(e) {
   const seekTime = e.target.value / 100 * audio.duration
   audio.currentTime = seekTime
 }
-
-btn_Next.addEventListener('click', function() {
-  if(random) {
-    let nextSong = Math.trunc(Math.random()*songs.length)
-    moveSong(nextSong)
-  }
-  else if (repeat) {
-    let nextSong = getIndexSong()
-    moveSong(nextSong)
-  }
-  else {
-    let nextSong = getIndexSong('+')
-    moveSong(nextSong)
-  }
-})
-
-btn_Prev.addEventListener('click', function() {
-  let prevSong = getIndexSong('-')
-  moveSong(prevSong)
-})
+// btn
 
 btn_Random.addEventListener('click', function() {
   random = (random === false) ? true : false
@@ -207,11 +162,46 @@ lightDark.addEventListener('change', function() {
   document.querySelector('.wrapper').classList.toggle('interface_wrapper_change')
 })
 
-const volume = document.getElementById('volume')
-
-volume.addEventListener('change',function(e) {
-  const x = e.target.value / 100
-  console.log(x);
-  audio.volume = x
+btn_Play.addEventListener('click', function() {
+  if (x == 1) {
+    audio.pause()
+  }
+  else {
+    audio.play()
+  }
+  x = x == 1 ? 0 : 1
+  Play.classList.toggle('hidden')
+  Pause.classList.toggle('hidden')
 })
+
+btn_Next.addEventListener('click', function() {
+  i = checkStatus(i, 'next')
+  document.querySelector(`.stt${getIndexCurrent()}`).classList.remove('Hold')
+  reset(songs[i])
+})
+btn_Prev.addEventListener('click', function() {
+  i = checkStatus(i, 'prev')
+  document.querySelector(`.stt${getIndexCurrent()}`).classList.remove('Hold')
+  reset(songs[i])
+})
+
+function checkStatus(i, str) {
+  if(random) {
+    i = Math.trunc(Math.random()*songs.length)
+    // reset(songs[nextSong])
+  }
+  else if (repeat) {
+    i = getIndexCurrent()
+    // reset(songs[nextSong])
+  }
+  else{
+    i = getIndexNextSong(str)
+  }
+  return i
+}
+
+function addHold() {
+  x = getIndexCurrent()
+  document.querySelector(`.stt${x}`).classList.add('Hold')
+}
 

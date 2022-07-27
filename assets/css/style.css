@@ -229,3 +229,7 @@ body {
   position: absolute;
   display: none;
 }
+
+.Hold {
+  background: #0096FF !important;
+}
