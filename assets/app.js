@@ -27,10 +27,10 @@ songs.map(song=> {
   playlist.innerHTML += `
     <div class="song">
       <div class="song_inner">
-        <div class="song_avt img_center" style="background-image: url(${song.songAvt});"></div>
+        <div class="song_avt img_center" style="background-image: url(${song.img});"></div>
         <div class="song_content">
-          <p class="song_name">${song.songName}</p>
-          <p class="song_author">${song.songAuthor}</p>
+          <p class="song_name">${song.name}</p>
+          <p class="song_author">${song.single}</p>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@ songs.map(song=> {
 function getIndexSong(str) {
   let name = document.querySelector('.name_dashboard').innerHTML
   let mp3 = songs.find(function(x) {
-    return x.songName == name
+    return x.name == name
   })
   let indexSong = songs.indexOf(mp3)
 
@@ -75,15 +75,15 @@ function changeCD(song) {
   document.querySelector('.name_dashboard').innerHTML = name
   resetRotate()
   let mp3 = songs.find(function(song) {
-    return song.songName == name
+    return song.name == name
   })
   if (audio === null) {
-    audio = new Audio(mp3.song_mp3)
+    audio = new Audio(mp3.path)
     audio.play()
   }
   else {
     audio.pause()
-    audio = new Audio(mp3.song_mp3)
+    audio = new Audio(mp3.path)
     audio.play()
   }
   next()
@@ -122,11 +122,11 @@ function tl() {
 }
 
 function moveSong(index_Song) {
-  let urlImage = `url(${songs[index_Song].songAvt})`
+  let urlImage = `url(${songs[index_Song].img})`
   document.querySelector('.cd').style.backgroundImage = urlImage
-  document.querySelector('.name_dashboard').innerHTML = songs[index_Song].songName
+  document.querySelector('.name_dashboard').innerHTML = songs[index_Song].name
   audio.pause()
-  audio = new Audio(songs[index_Song].song_mp3)
+  audio = new Audio(songs[index_Song].path)
   resetBtnPlay()
   resetRotate()
   audio.play()
@@ -204,11 +204,13 @@ lightDark.addEventListener('change', function() {
   document.querySelector('.dashboard').classList.toggle('interface_wrapper_change')
   document.querySelector('.playlist').classList.toggle('interface_wrapper_change')
   document.body.classList.toggle('interface_body_change')
-  // console.log(document.querySelector(".wrapper::-webkit-scrollbar").style);
-  document.querySelector(".wrapper").style.setProperty('-webkit-scrollbar-track', 'background: #212121');
+  document.querySelector('.wrapper').classList.toggle('interface_wrapper_change')
 })
 
-// const wr = document.querySelector('.wrapper')
-// wr.addEventListener('scroll', function() {
-//   let per = wr.scrollTop
-// })
+const volume = document.getElementById('volume')
+
+volume.addEventListener('change',function(e) {
+  const x = e.target.value / 100
+  console.log(x);
+  audio.volume = x
+})

@@ -14,32 +14,34 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
+  transition: 0.5s;
   /* background: #000; */
 }
 
 .wrapper {
-  /* resize: both; */
-  /* background: #F1F1F1; */
+  background: #F1F1F1;
   margin: 0 auto;
   width: 400px;
   height: 100vh;
   overflow-y: scroll;
   position: relative;
+  /* transition: 0.5s; */
+  /* border-radius: 5px; */
 }
 
 .wrapper::-webkit-scrollbar {
   width: 10px;
-  background: lightgrey;
+  /* background: transparent; */
   border-radius: 5px;
 }
 
 .wrapper::-webkit-scrollbar-track {
   margin-top: 370px;
-  /* background: #212121; */
+  /* background: transparent; */
 }
 
 .wrapper::-webkit-scrollbar-thumb {
-  background: grey;
+  background: linear-gradient( #0F3D3E, #76BA99);
   border-radius: 5px;
 }
 
@@ -48,6 +50,7 @@ body {
   height: 370px;
   position: fixed;
   background: #F1F1F1;
+  transition: 0.5s;
 }
 
 .switch {
@@ -90,6 +93,7 @@ body {
   padding-top: 370px;
   outline: none;
   background: #F1F1F1;
+  transition: 0.5s;
 }
 
 .name_dashboard {
@@ -221,3 +225,7 @@ body {
   transition: 0.5s;
 }
 
+#volume {
+  position: absolute;
+  display: none;
+}
