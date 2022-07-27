@@ -14,16 +14,33 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
+  /* background: #000; */
 }
 
 .wrapper {
-  resize: both;
-  background: #F1F1F1;
+  /* resize: both; */
+  /* background: #F1F1F1; */
   margin: 0 auto;
   width: 400px;
   height: 100vh;
-  overflow: value;
+  overflow-y: scroll;
   position: relative;
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 10px;
+  background: lightgrey;
+  border-radius: 5px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+  margin-top: 370px;
+  /* background: #212121; */
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 5px;
 }
 
 .dashboard {
@@ -32,6 +49,40 @@ body {
   position: fixed;
   background: #F1F1F1;
 }
+
+.switch {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  appearance: none;
+  width: 30px;
+  height: 16px;
+  background: #5BB318;
+  border-radius: 15px;
+  box-shadow: inset 0 0 3px grey;
+  border: 1px solid grey;
+}
+
+.switch::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #F5E8E4;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 3px grey;
+  top: 1px;
+  left: 1px;
+  transition: 0.25s ease;
+}
+
+.switch:checked:before{
+  left: 15px;
+}
+
+.switch:checked{
+  background: #748DA6;
+} 
 
 .playlist {
   display: flex;
@@ -159,3 +210,14 @@ body {
 .red {
   color: red;
 }
+
+.interface_wrapper_change{
+  background: #212121;
+  color: #F1F1F1;
+  transition: 0.5s;
+}
+.interface_body_change{
+  background: rgb(39, 35, 35);
+  transition: 0.5s;
+}
+
