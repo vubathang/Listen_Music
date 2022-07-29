@@ -30,22 +30,10 @@ const songs = [
     path: 'https://cf-media.sndcdn.com/3Cc5JchX5jfD.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vM0NjNUpjaFg1amZELjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU4ODA0MzExfX19XX0_&Signature=FCbHsGcsGbZYcNBCqD5XLKreSXIhsQC2wOTxy~w~GR1pUM3BVTU8bJ-s4jWk92gj0K1WFsCjSVbsLPu0~Nd5Ms4G1QVUzirqzq7KLTR8fmUMnEJiCmuOU~nFNufPgBgAXoHWY9GclyYvz44Chq0PCb2jGTDC8WVfUSa7XipZIG9tPDjpzt~EnMoFeV9ggnRqykp2vBhqA4vpk4y7GLBs0WZuBhpA-OyJpTJI6hfvzZPUzV3W-CXCtwcYcE8f8wzcGb794TuGYiTOxFly145B7uoiTQgkx7YaE7bjf47nsmRcGBxYHASbojizlhMp514o4te2X3Zu2vDMCcp2zhoxvA__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ',
   },
   {
-    name: "Bên Trên Tầng Lầu",
-    img: 'https://avatar-ex-swe.nixcdn.com/song/2022/06/09/d/4/5/e/1654766693061.jpg',
-    single: 'Tăng Duy Tân',
-    path: 'https://cf-media.sndcdn.com/CvCx1dPZAuVw.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vQ3ZDeDFkUFpBdVZ3LjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU4ODA0MTQ2fX19XX0_&Signature=Duhs0TfxAn~JfoOx3eu5pAFX1adl6jhNlmg4owEacvpUuLC4gVSgVsByxbkQBceglRTAebAsRMpKARt6BLSUMbzGYzcu6zfhILxlP7s-T5sIycEHRCSoVHJX~~llE6y0kwMOyvVehIggJFqqmD6slNAxiCK7m7yGg5aD9daygKuhiQl0Duri6mawcCqeou5lhfGQ9njsg~IrWCpTsQ4IJU33CEqLJUHY2COLeUr6SzQWrQV3IqGJ0yv~7k06LZWy4GBA~7rKKUap7ekFGWn~uEnq4fTI6kFpc5vkk6wJIG4p4UiRVCXTgKp-fZltG5Swt9ERpo8UBgqks74HEqKksA__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ'
-  },
-  {
     name: "Vì Mẹ Anh Bắt Chia Tay",
     img: 'https://avatar-ex-swe.nixcdn.com/song/2022/06/16/d/c/9/2/1655371095601.jpg',
     single: 'Miu Lê',
     path: 'https://cf-media.sndcdn.com/EJBtq7LVX8eI.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vRUpCdHE3TFZYOGVJLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU4ODIwMDAyfX19XX0_&Signature=YBlSqKCm2YmaIJL5NhXUDSgxHfBBoDNszVkuGfNal-QF8yRfSbhLtU-2uw4hZMY30nUREhaySZJzb5BkwsjLCD-2ecBekLItD2naVlPeI22Mmt4CbQqZqyS4DLHU9OHvLRneB9tugEuZSStJiqVMH-By4kBBEuPKOoMD1duB9dJgateMirn4qhbmcj3GS~-ZUuT~iGQXjnvTKC4zNeBfCbYLVXCHxMvhaQIXjoJmwmGJ677JymMYriS8B~27w0Lo6QNs8yZ5IO5C05VDjcX4KcA-uGS3-PrcHntxDNiHBCOhgXhqM3ddjl70Z1ecFlxcGN5prJTtw2GMpfzWLn4~uw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ'
-  },
-  {
-    name: "Bắt cóc con tim",
-    img: 'https://avatar-ex-swe.nixcdn.com/song/2022/06/30/7/b/2/2/1656580453081.jpg',
-    single: 'Lou Hoàng',
-    path: 'https://cf-media.sndcdn.com/6j4JqFP4YYfE.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vNmo0SnFGUDRZWWZFLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU4ODIwMDIxfX19XX0_&Signature=f5sMx8HrScm6FS1iEtioWYPzIex3buxc0ga9V9c9vPGwg0qobORYRnGsVp3b7flkBn3Pf04EO3lvfCGyt7Eg82VqPC5aKuCUCoXVLwPsjsHb0vz9TDMK6CLv1QLsr4TJhDlgtAk9v054PwiWf7UuLGir8zQ14bLVemDcZkZ0Lkkuegz37Xx9f3Sln79UhhVaSfSUdpny4WzUJkKGNxnf-DHK5mr~acijWT3Xr-IEGcK0TyN-K3c-3IttSGfy-8v40gMjonDlI~jlbhXeEoM2b1VZupb8~j~qT5TWvynZ~tYlUER0jDDyiA9tdRXe4a5pJ6PewqQHCT8oobxITDekTQ__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ'
   },
   {
     name: "2 AM",

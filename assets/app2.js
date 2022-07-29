@@ -1,4 +1,4 @@
-import { songs } from "./loadSong.js" 
+import {songs} from './loadSong.js'
 
 const playlist = document.querySelector('.playlist')
 const dashboard = document.querySelector('.dashboard')
@@ -19,6 +19,8 @@ let x = 1
 let random = false
 let repeat = false
 let audio = null
+let per = 0
+
 
 // hiển thị bài hát
 songs.map(song=> {
@@ -34,6 +36,13 @@ songs.map(song=> {
     </div>
   `
 })
+
+if (cd.style.backgroundImage == `url("")`) {
+  document.querySelector('.cd').classList.add('hidden')
+  document.querySelector('.wrapper').classList.add('setH')
+  document.querySelector('.dashboard').classList.add('setH_dashboard')
+
+}
 
 function getIndexCurrent() {
   let name = document.querySelector('.name_dashboard').innerHTML
@@ -68,7 +77,13 @@ function getIndexNextSong(str) {
 }
 
 function reset(song) {
-  document.querySelector('#song_time').value = 0
+
+  document.querySelector('.cd').classList.remove('hidden')
+  document.querySelector('.wrapper').classList.remove('setH')
+  document.querySelector('.dashboard').classList.remove('setH_dashboard')
+
+  per = 0
+  document.querySelector('#song_time').value = per
   x = 1
   let url = `url('${song.img}')`
   let name = song.name
@@ -76,12 +91,13 @@ function reset(song) {
   Play.classList.remove('hidden')
   Pause.classList.add('hidden')
   document.querySelector('.cd').classList.remove('rotate')
+  
   setTimeout(function() {
-    document.querySelector('.cd').classList.add('rotate')
     document.querySelector(`.stt${getIndexCurrent()}`).classList.add('Hold')
-  }, 50)
-
-  document.querySelector('.cd').style.backgroundImage = url
+    document.querySelector('.cd').classList.add('rotate')
+  }, 0)
+  location.href = '#Hold'
+  cd.style.backgroundImage = url
   document.querySelector('.name_dashboard').innerHTML = name
   if (audio === null) {
     audio = new Audio(song.path)
@@ -96,10 +112,10 @@ function reset(song) {
   i = checkStatus(i, 'next')
   
   audio.ontimeupdate = function () {
-    timeLine.value = 0
-    let per = audio.currentTime / audio.duration
-    timeLine.value = per*100
+    per = audio.currentTime / audio.duration
+    timeLine.value = per*100 || 0
     if(per == 1) {
+      per = 0 
       document.querySelector(`.stt${getIndexCurrent()}`).classList.remove('Hold')
       reset(songs[i])
     }
@@ -165,9 +181,11 @@ lightDark.addEventListener('change', function() {
 btn_Play.addEventListener('click', function() {
   if (x == 1) {
     audio.pause()
+    cd.style.animationPlayState = 'paused'
   }
   else {
     audio.play()
+    cd.style.animationPlayState = 'running'
   }
   x = x == 1 ? 0 : 1
   Play.classList.toggle('hidden')
@@ -199,9 +217,3 @@ function checkStatus(i, str) {
   }
   return i
 }
-
-function addHold() {
-  x = getIndexCurrent()
-  document.querySelector(`.stt${x}`).classList.add('Hold')
-}
-

@@ -18,13 +18,16 @@ body {
   /* background: #000; */
 }
 
+
 .wrapper {
   background: #F1F1F1;
   margin: 0 auto;
   width: 400px;
   height: 100vh;
   overflow-y: scroll;
-  position: relative;
+  scroll-padding-top: 370px;
+  padding-top: 370px;
+  /* margin-top: 370px; */
   /* transition: 0.5s; */
   /* border-radius: 5px; */
 }
@@ -50,7 +53,9 @@ body {
   height: 370px;
   position: fixed;
   background: #F1F1F1;
-  transition: 0.5s;
+  /* transition: 0.5s; */
+  /* display: none; */
+  top: 0;
 }
 
 .switch {
@@ -90,7 +95,7 @@ body {
 .playlist {
   display: flex;
   flex-direction: column;
-  padding-top: 370px;
+  /* margin-top: 370px; */
   outline: none;
   background: #F1F1F1;
   transition: 0.5s;
@@ -110,10 +115,9 @@ body {
   /* background: red; */
   height: 12rem;
   width: 12rem;
-
   border-radius: 50%;
   margin: 10px auto;
-
+  transition: 0.1s;
 }
 
 .control {
@@ -139,6 +143,7 @@ body {
   /* border: 1px solid black; */
   width: 60%;
   margin: 25px auto;
+
 }
 
 #song_time {
@@ -232,4 +237,12 @@ body {
 
 .Hold {
   background: #0096FF !important;
+}
+
+.setH {
+  padding-top: 155px;
+}
+
+.setH_dashboard {
+  height: 155px;
 }
