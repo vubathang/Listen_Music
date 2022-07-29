@@ -1,4 +1,17 @@
-import {songs} from './loadSong.js'
+
+import { songs } from "./loadSong.js" 
+// console.log(songs);
+// const songAPI = 'http://localhost:3000/songs'
+// let songss = []
+
+
+// fetch(songAPI) 
+//   .then(data => data.json())
+//   .then(function(songData) {
+//     songss.push(songData)
+//   })
+
+
 
 const playlist = document.querySelector('.playlist')
 const dashboard = document.querySelector('.dashboard')
